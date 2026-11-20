@@ -210,7 +210,10 @@
   .plan-list{display:flex; flex-direction:column; gap:10px; margin:0; padding:0; list-style:none}
   .plan-list li{
     background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; display:flex; gap:14px; align-items:center; width:100%;
+    cursor:pointer; transition:background .15s ease, border-color .15s ease;
   }
+  .plan-list li:hover{background:var(--card-2); border-color:var(--line-strong)}
+  .plan-list li .pr-tap{color:var(--pine); font-weight:700}
   .plan-list li > div{flex:1 1 auto; min-width:0}
   .plan-list .pn{
     flex:none; width:30px; height:30px; border-radius:50%; display:grid; place-items:center;
@@ -251,7 +254,7 @@
     <a href="#next-series">The next series</a>
     <a href="#archive" class="archive-link">Archive — previous days</a>
     <a href="#week">Previous week</a>
-    <a href="https://muse.ai/s/moon-xnxt6xnxv38xoqxbx0/3Re2TDxQk4hasy124MJjAp3I8h-7VhnihO3UQySmJic" class="moon-link" target="_blank" rel="noopener">Moon site ↗</a>
+    <a href="https://ejyoungr-hash.github.io/moon/" class="moon-link" target="_blank" rel="noopener">Moon site ↗</a>
   </nav>
 </div>
 
@@ -324,7 +327,7 @@
   <!-- PREVIOUS WEEK -->
   <div class="section-head anchor" id="week">
     <h2>Previous week</h2>
-    <p>Tuesday, November 10 – Monday, November 16 · one theme a day</p>
+    <p>Tuesday, November 10 – Monday, November 16 · tap any day to open it in the reader</p>
   </div>
   <ul class="plan-list" id="planList"></ul>
 
@@ -757,19 +760,36 @@
   }
 
   /* ----- Week plan ----- */
+  function wirePlanList(listEl){
+    if (!listEl) return;
+    Array.prototype.forEach.call(listEl.querySelectorAll("li[data-day]"), function(item){
+      var day = parseInt(item.getAttribute("data-day"), 10);
+      item.addEventListener("click", function(){
+        openDay(day, true);
+      });
+      item.addEventListener("keydown", function(e){
+        if (e.key === "Enter" || e.key === " "){ e.preventDefault(); openDay(day, true); }
+      });
+    });
+  }
   function renderPlan(){
-    byId("planList").innerHTML = DAYS.filter(function(d){ return d.day >= 8 && d.day <= 14; }).map(function(d){
+    var planEl = byId("planList");
+    planEl.innerHTML = DAYS.filter(function(d){ return d.day >= 8 && d.day <= 14; }).map(function(d){
       var cls = d.status === "upcoming" ? "" : (d.today ? "today" : "done");
       var mark = d.status === "delivered" && !d.today ? "\u2713" : d.day;
-      return '<li class="' + cls + '"><span class="pn">' + mark + '</span><div><div class="pt">' + esc(d.title) + '</div><div class="pr">Day ' + d.day + ' \u00b7 ' + esc(d.ref) + ' \u00b7 ' + esc(d.shortDate) + '</div></div></li>';
+      var tapHint = d.status === "upcoming" ? "" : ' \u00b7 <span class="pr-tap">Tap to read</span>';
+      return '<li class="' + cls + '" role="button" tabindex="0" data-day="' + d.day + '" aria-label="Open Day ' + d.day + ': ' + esc(d.title) + '"><span class="pn">' + mark + '</span><div><div class="pt">' + esc(d.title) + '</div><div class="pr">Day ' + d.day + ' \u00b7 ' + esc(d.ref) + ' \u00b7 ' + esc(d.shortDate) + tapHint + '</div></div></li>';
     }).join("");
+    wirePlanList(planEl);
     var nextEl = byId("nextList");
     if (nextEl){
       nextEl.innerHTML = DAYS.filter(function(d){ return d.series === "next"; }).map(function(d){
         var cls = d.today ? "today" : (d.status === "delivered" ? "done" : "next-item");
         var mark = d.status === "delivered" && !d.today ? "\u2713" : d.day;
-        return '<li class="' + cls + '"><span class="pn">' + mark + '</span><div><div class="pt">' + esc(d.title) + '</div><div class="pr">Day ' + d.day + ' \u00b7 ' + esc(d.ref) + ' \u00b7 ' + esc(d.date) + '</div></div></li>';
+        var tapHint = d.status === "upcoming" ? "" : ' \u00b7 <span class="pr-tap">Tap to read</span>';
+        return '<li class="' + cls + '" role="button" tabindex="0" data-day="' + d.day + '" aria-label="Open Day ' + d.day + ': ' + esc(d.title) + '"><span class="pn">' + mark + '</span><div><div class="pt">' + esc(d.title) + '</div><div class="pr">Day ' + d.day + ' \u00b7 ' + esc(d.ref) + ' \u00b7 ' + esc(d.date) + tapHint + '</div></div></li>';
       }).join("");
+      wirePlanList(nextEl);
     }
   }
 
