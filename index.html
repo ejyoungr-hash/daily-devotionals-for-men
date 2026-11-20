@@ -229,11 +229,12 @@
     border:1px solid var(--line); border-radius:14px; padding:16px 18px; background:var(--bg-soft); color:var(--ink-soft); line-height:1.65; margin:0;
   }
 
-  /* ---------- Week plan ---------- */
-  .plan-list{display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:12px; margin:0; padding:0; list-style:none}
+  /* ---------- Week plan — full-width line rows ---------- */
+  .plan-list{display:flex; flex-direction:column; gap:10px; margin:0; padding:0; list-style:none}
   .plan-list li{
-    background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; display:flex; gap:12px; align-items:flex-start;
+    background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; display:flex; gap:14px; align-items:center; width:100%;
   }
+  .plan-list li > div{flex:1 1 auto; min-width:0}
   .plan-list .pn{
     flex:none; width:30px; height:30px; border-radius:50%; display:grid; place-items:center;
     font-weight:800; font-size:.86rem; background:var(--bg-soft); color:var(--muted); border:1px solid var(--line);
