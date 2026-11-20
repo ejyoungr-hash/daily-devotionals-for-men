@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Daily Devotionals for Men</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f7f3ec;
+    --bg-soft:#efe8db;
+    --card:#fffdf8;
+    --card-2:#f3ecdd;
+    --ink:#22251f;
+    --ink-soft:#4c4f45;
+    --muted:#7a7d6f;
+    --line:#ddd3bf;
+    --line-strong:#c9bb9c;
+    --gold:#9a6b1f;
+    --gold-strong:#7d5514;
+    --gold-soft:#f3e3bd;
+    --pine:#2f4a3e;
+    --pine-soft:#dce7df;
+    --rust:#9c4a2f;
+    --shadow:0 10px 30px rgba(60,48,20,.10), 0 2px 6px rgba(60,48,20,.06);
+    --radius:18px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#161814;
+      --bg-soft:#1d1f1a;
+      --card:#22241e;
+      --card-2:#2a2c24;
+      --ink:#ece7d8;
+      --ink-soft:#c9c4b2;
+      --muted:#9a9787;
+      --line:#3a3c32;
+      --line-strong:#4c4e40;
+      --gold:#d9a94f;
+      --gold-strong:#eec26e;
+      --gold-soft:#3d341d;
+      --pine:#8fb8a2;
+      --pine-soft:#26362d;
+      --rust:#d08a6d;
+      --shadow:0 10px 30px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.25);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size:16px; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px; margin:0 auto; padding:0 20px 72px}
+
+  /* ---------- Top menu ---------- */
+  /* Solid full-width bar that sticks to the very top of the screen: the
+     pill menu floats inside it, and page content scrolling underneath is
+     fully hidden by the bar's opaque background — nothing shows through
+     above, beside, or around the pill. */
+  .menu-bar{
+    position:sticky; top:0; z-index:50;
+    background:var(--bg);
+    padding:12px 20px 10px;
+  }
+  nav.menu{
+    max-width:1020px; margin:0 auto;
+    background:var(--card); border:1px solid var(--line-strong); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:7px;
+    display:flex; flex-wrap:wrap; gap:4px; align-items:center;
+  }
+  nav.menu .menu-label{
+    font-size:.76rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--gold); padding:0 8px 0 12px; white-space:nowrap;
+  }
+  nav.menu a{
+    color:var(--ink-soft); text-decoration:none; font-weight:700; font-size:.9rem;
+    padding:7px 13px; border-radius:10px; white-space:nowrap;
+  }
+  nav.menu a:hover{background:var(--bg-soft); color:var(--ink)}
+  nav.menu a.archive-link{background:var(--pine-soft); color:var(--pine)}
+  nav.menu a.archive-link:hover{background:var(--pine-soft); color:var(--pine); text-decoration:underline}
+  nav.menu a.moon-link{background:var(--gold-soft); color:var(--gold-strong)}
+  nav.menu a.moon-link:hover{background:var(--gold-soft); color:var(--gold-strong); text-decoration:underline}
+  .anchor{scroll-margin-top:96px}
+
+  /* ---------- Moon site link ---------- */
+  .moon-banner{
+    margin-top:22px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 18px; box-shadow:var(--shadow);
+    display:flex; flex-wrap:wrap; gap:12px 18px; align-items:center; justify-content:space-between;
+  }
+  .moon-banner .mb-text{min-width:0}
+  .moon-banner .mb-label{font-size:.78rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:var(--gold); margin:0 0 3px}
+  .moon-banner .mb-title{font-family:"Newsreader", Georgia, serif; font-size:1.25rem; font-weight:600; margin:0; line-height:1.2}
+  .moon-banner .mb-note{font-size:.9rem; color:var(--muted); margin:3px 0 0}
+  .moon-btn{
+    display:inline-flex; align-items:center; gap:8px; flex:none;
+    background:var(--gold); border:1px solid var(--gold); color:#fff8ea; text-decoration:none;
+    font-weight:700; font-size:.92rem; padding:10px 18px; border-radius:10px;
+  }
+  @media (prefers-color-scheme: dark){ .moon-btn{color:#241a05} }
+  .moon-btn:hover{background:var(--gold-strong); border-color:var(--gold-strong); text-decoration:underline}
+
+  /* ---------- Header ---------- */
+  header.top{padding:34px 0 8px}
+  .dateline{display:flex; flex-wrap:wrap; align-items:center; gap:10px; color:var(--muted); font-size:.86rem; font-weight:600; letter-spacing:.02em}
+  .dateline .dot{width:4px;height:4px;border-radius:50%;background:var(--line-strong)}
+  h1{
+    font-family:"Newsreader", Georgia, serif; font-weight:600;
+    font-size:clamp(2.1rem, 5.4vw, 3.3rem); line-height:1.06; letter-spacing:-.01em;
+    margin:12px 0 10px; max-width:16ch;
+  }
+  .lede{font-size:1.06rem; color:var(--ink-soft); max-width:58ch; margin:0}
+  .lede strong{color:var(--ink)}
+
+  .progress-row{display:flex; flex-wrap:wrap; gap:14px; align-items:stretch; margin-top:22px}
+  .progress-card{
+    flex:1 1 300px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 18px; box-shadow:var(--shadow);
+  }
+  .progress-card .pc-label{font-size:.78rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:var(--gold); margin:0 0 6px}
+  .progress-card .pc-big{font-family:"Newsreader", Georgia, serif; font-size:1.5rem; font-weight:600; margin:0 0 8px}
+  .bar{height:9px; border-radius:99px; background:var(--bg-soft); overflow:hidden; border:1px solid var(--line)}
+  .bar > div{height:100%; width:0%; background:var(--gold); border-radius:99px; transition:width .5s ease}
+  .progress-card .pc-note{font-size:.88rem; color:var(--muted); margin:8px 0 0}
+  .mini-stat{
+    flex:0 1 150px; background:var(--pine-soft); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 18px; display:flex; flex-direction:column; justify-content:center;
+  }
+  .mini-stat .n{font-family:"Newsreader", Georgia, serif; font-size:1.9rem; font-weight:700; line-height:1; color:var(--pine)}
+  .mini-stat .t{font-size:.82rem; font-weight:600; color:var(--ink-soft); margin-top:5px}
+
+  /* ---------- Today's devotional ---------- */
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin:38px 0 14px; flex-wrap:wrap}
+  .section-head h2{font-family:"Newsreader", Georgia, serif; font-size:1.65rem; font-weight:600; margin:0}
+  .section-head p{margin:0; color:var(--muted); font-size:.92rem}
+  .today-card{
+    background:var(--card); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .today-banner{
+    background:var(--pine); color:#f2efe2; padding:18px 24px; display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; justify-content:space-between;
+  }
+  @media (prefers-color-scheme: dark){ .today-banner{background:#24382e; color:#e9e6d6} }
+  .today-banner .tb-left{display:flex; align-items:center; gap:12px; min-width:0}
+  .sun-ic{flex:none; width:38px; height:38px; border-radius:12px; background:rgba(255,255,255,.14); display:grid; place-items:center}
+  .today-banner .tb-kicker{font-size:.74rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; opacity:.85; margin:0}
+  .today-banner .tb-title{font-family:"Newsreader", Georgia, serif; font-size:1.35rem; font-weight:600; margin:1px 0 0; line-height:1.15}
+  .today-banner .tb-date{font-size:.9rem; font-weight:600; opacity:.9; white-space:nowrap}
+  .today-body{padding:24px}
+
+  .passage{
+    background:var(--card-2); border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin:0 0 20px;
+  }
+  .passage .ref{font-size:.78rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:var(--gold); margin:0 0 8px}
+  .passage blockquote{
+    margin:0; font-family:"Newsreader", Georgia, serif; font-size:1.22rem; line-height:1.5; font-style:italic; font-weight:500;
+  }
+  .passage .version + .version{margin-top:15px; padding-top:15px; border-top:1px solid var(--line)}
+  .passage .version-label{
+    font-size:.74rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--pine); margin:0 0 5px;
+  }
+  .passage .version blockquote{font-size:1.13rem}
+  .block-label{font-size:.78rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:var(--gold); margin:22px 0 7px}
+  .block-label:first-of-type{margin-top:0}
+  .dev-text{margin:0; color:var(--ink-soft); font-size:1.02rem; line-height:1.7}
+  .dev-text + .dev-text{margin-top:12px}
+  .action-box{
+    margin-top:22px; border:1px solid var(--line-strong); border-radius:14px; padding:16px 18px;
+    background:var(--gold-soft);
+  }
+  .action-box .block-label{margin-top:0; color:var(--gold-strong)}
+  .action-box p{margin:0; color:var(--ink); line-height:1.65}
+
+  .today-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px}
+  button{font:inherit; cursor:pointer}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; border-radius:999px; padding:10px 18px;
+    font-weight:700; font-size:.92rem; border:1px solid var(--line-strong); background:var(--card); color:var(--ink);
+    transition:transform .12s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn:active{transform:translateY(0)}
+  .btn.primary{background:var(--gold); border-color:var(--gold); color:#fff8ea}
+  @media (prefers-color-scheme: dark){ .btn.primary{color:#241a05} }
+  .btn.primary:hover{background:var(--gold-strong)}
+  .btn[aria-pressed="true"]{background:var(--pine-soft); border-color:var(--pine); color:var(--pine)}
+  .btn svg{flex:none}
+
+  /* ---------- Archive controls ---------- */
+  .controls{
+    display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:6px 0 18px;
+  }
+  .search{
+    flex:1 1 240px; display:flex; align-items:center; gap:9px; background:var(--card);
+    border:1px solid var(--line); border-radius:999px; padding:9px 15px;
+  }
+  .search:focus-within{border-color:var(--gold); outline:2px solid var(--gold-soft); outline-offset:1px}
+  .search svg{flex:none; color:var(--muted)}
+  .search input{border:0; outline:0; background:transparent; color:var(--ink); font:inherit; font-size:.95rem; width:100%; min-width:0}
+  .search input::placeholder{color:var(--muted)}
+  .chips{display:flex; flex-wrap:wrap; gap:8px}
+  .chip{
+    border:1px solid var(--line-strong); background:var(--card); color:var(--ink-soft);
+    border-radius:999px; padding:8px 15px; font-weight:700; font-size:.88rem;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink); border-color:var(--ink); color:var(--bg)}
+  .chip:hover{border-color:var(--gold)}
+
+  /* ---------- Archive grid ---------- */
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:16px}
+  .day-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px;
+    display:flex; flex-direction:column; gap:0; text-align:left; width:100%;
+    box-shadow:0 1px 3px rgba(60,48,20,.05); transition:border-color .15s ease, transform .12s ease, box-shadow .15s ease;
+    color:var(--ink);
+  }
+  .day-card:hover{border-color:var(--gold); transform:translateY(-2px); box-shadow:var(--shadow)}
+  .day-card.selected{border-color:var(--gold); box-shadow:0 0 0 2px var(--gold-soft), var(--shadow)}
+  .day-card.upcoming{opacity:.92}
+  .dc-top{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
+  .day-badge{
+    display:inline-flex; align-items:center; gap:7px; font-size:.76rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase;
+    background:var(--gold-soft); color:var(--gold-strong); border-radius:999px; padding:5px 11px;
+  }
+  .day-badge.done{background:var(--pine-soft); color:var(--pine)}
+  .day-badge.soon{background:var(--bg-soft); color:var(--muted)}
+  .dc-date{font-size:.84rem; color:var(--muted); font-weight:600; white-space:nowrap}
+  .day-card h3{font-family:"Newsreader", Georgia, serif; font-size:1.32rem; font-weight:600; line-height:1.2; margin:0 0 5px}
+  .dc-ref{font-size:.9rem; font-weight:700; color:var(--gold); margin:0 0 9px}
+  .dc-excerpt{font-size:.93rem; color:var(--ink-soft); line-height:1.6; margin:0; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden}
+  .dc-foot{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:15px; padding-top:13px; border-top:1px solid var(--line)}
+  .dc-status{font-size:.84rem; font-weight:700; color:var(--muted); display:inline-flex; align-items:center; gap:6px}
+  .dc-status.read{color:var(--pine)}
+  .heart-btn{
+    border:1px solid var(--line); background:var(--card-2); width:36px; height:36px; border-radius:50%;
+    display:grid; place-items:center; color:var(--muted); flex:none;
+  }
+  .heart-btn[aria-pressed="true"]{color:#b3402e; border-color:#b3402e; background:#f9e8e2}
+  @media (prefers-color-scheme: dark){ .heart-btn[aria-pressed="true"]{background:#3d2721; color:#e08a72; border-color:#8a4a38} }
+  .empty{
+    border:1.5px dashed var(--line-strong); border-radius:var(--radius); padding:34px 22px; text-align:center; color:var(--muted);
+    grid-column:1 / -1; background:var(--card);
+  }
+  .empty strong{color:var(--ink); display:block; font-family:"Newsreader", Georgia, serif; font-size:1.2rem; margin-bottom:5px}
+
+  /* ---------- Reader ---------- */
+  .reader{
+    margin-top:34px; background:var(--card); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); overflow:hidden;
+  }
+  .reader-head{
+    padding:20px 24px; border-bottom:1px solid var(--line); display:flex; flex-wrap:wrap; gap:12px; align-items:flex-start; justify-content:space-between;
+    background:var(--card-2);
+  }
+  .reader-head h2{font-family:"Newsreader", Georgia, serif; font-size:1.7rem; font-weight:600; margin:4px 0 3px; line-height:1.15}
+  .reader-head .rh-meta{color:var(--muted); font-size:.9rem; font-weight:600; margin:0}
+  .reader-body{padding:24px}
+  .reader-nav{display:flex; gap:10px; flex-wrap:wrap}
+  .note-box{
+    border:1px solid var(--line); border-radius:14px; padding:16px 18px; background:var(--bg-soft); color:var(--ink-soft); line-height:1.65; margin:0;
+  }
+
+  /* ---------- Week plan ---------- */
+  .plan-list{display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:12px; margin:0; padding:0; list-style:none}
+  .plan-list li{
+    background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; display:flex; gap:12px; align-items:flex-start;
+  }
+  .plan-list .pn{
+    flex:none; width:30px; height:30px; border-radius:50%; display:grid; place-items:center;
+    font-weight:800; font-size:.86rem; background:var(--bg-soft); color:var(--muted); border:1px solid var(--line);
+  }
+  .plan-list li.done .pn{background:var(--pine); color:#f2efe2; border-color:var(--pine)}
+  .plan-list li.today .pn{background:var(--gold); color:#fff8ea; border-color:var(--gold)}
+  .plan-list .pt{font-weight:700; font-size:.95rem; line-height:1.35}
+  .plan-list .pr{font-size:.84rem; color:var(--muted); margin-top:2px}
+  .next-intro{margin:0 0 14px; color:var(--ink-soft); line-height:1.65; max-width:68ch}
+  .plan-list li.next-item .pn{background:var(--gold-soft); color:var(--gold-strong); border-color:var(--line-strong)}
+
+  footer{margin-top:44px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:space-between}
+  footer p{margin:0}
+
+  :focus-visible{outline:2px solid var(--gold); outline-offset:2px; border-radius:6px}
+  @media (max-width:640px){
+    .wrap{padding:0 15px 56px}
+    .menu-bar{padding:10px 15px 8px}
+    .anchor{scroll-margin-top:150px}
+    header.top{padding-top:24px}
+    .today-body,.reader-body{padding:19px}
+    .today-banner,.reader-head{padding-left:19px; padding-right:19px}
+    .grid{grid-template-columns:1fr}
+    .mini-stat{flex:1 1 130px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="menu-bar">
+  <nav class="menu" aria-label="Page menu">
+    <span class="menu-label">Menu</span>
+    <a href="#today" id="todayMenuLink">Today</a>
+    <a href="#next-series">The next series</a>
+    <a href="#archive" class="archive-link">Archive — previous days</a>
+    <a href="#reader">Reader</a>
+    <a href="#week">Week 1</a>
+    <a href="https://muse.ai/s/moon-xnxt6xnxv38xoqxbx0/3Re2TDxQk4hasy124MJjAp3I8h-7VhnihO3UQySmJic" class="moon-link" target="_blank" rel="noopener">Moon site ↗</a>
+  </nav>
+</div>
+
+<div class="wrap">
+  <header class="top">
+    <div class="dateline">
+      <span>Thursday, November 19, 2026</span><span class="dot" aria-hidden="true"></span>
+      <span>New devotional every morning at 5:00 a.m. Eastern</span>
+    </div>
+    <h1>Daily Devotionals for Men</h1>
+    <p class="lede">Good morning. This is home base for daily devotionals for men — <strong>today's reading up top</strong>, and every previous day kept in the archive below so you can return to any of them.</p>
+
+    <div class="progress-row">
+      <div class="progress-card">
+        <p class="pc-label">Week 1 · 7-day plan</p>
+        <p class="pc-big" id="progressBig">Day 7 of 7</p>
+        <div class="bar" role="progressbar" aria-label="Week 1 progress" aria-valuemin="0" aria-valuemax="7" aria-valuenow="7" id="progressBar"><div id="progressFill"></div></div>
+        <p class="pc-note" id="progressNote">16 previous days in the archive · Week 1 complete — the next series is under way</p>
+      </div>
+      <div class="mini-stat"><span class="n" id="statRead">0</span><span class="t">days marked read on this visit</span></div>
+      <div class="mini-stat"><span class="n" id="statFav">0</span><span class="t">days you've favorited</span></div>
+    </div>
+
+    <div class="moon-banner">
+      <div class="mb-text">
+        <p class="mb-label">Also visit</p>
+        <p class="mb-title">The Moon site</p>
+        <p class="mb-note">Photos of the Moon, a Moon quiz, and your favorite things.</p>
+      </div>
+      <a class="moon-btn" href="https://muse.ai/s/moon-xnxt6xnxv38xoqxbx0/3Re2TDxQk4hasy124MJjAp3I8h-7VhnihO3UQySmJic" target="_blank" rel="noopener">Visit the Moon site <span aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <!-- TODAY -->
+  <div class="section-head anchor" id="today">
+    <h2>Today's devotional</h2>
+    <p>About 10–15 minutes to read and reflect</p>
+  </div>
+  <article class="today-card" id="todayCard" aria-label="Today's devotional"></article>
+
+  <!-- NEXT SERIES -->
+  <div class="section-head anchor" id="next-series">
+    <h2>The next series — Days 15–21</h2>
+    <p>Started Tuesday, November 17 · one theme a day</p>
+  </div>
+  <p class="next-intro">The next week of themes is under way — Day 17 is today’s reading. Each day’s theme, passage, and date is listed here, and the full devotional for each following day will be added on its day.</p>
+  <ul class="plan-list" id="nextList"></ul>
+
+  <!-- ARCHIVE -->
+  <div class="section-head anchor" id="archive">
+    <h2>Archive — previous days</h2>
+    <p>Tap any day to open it in the reader</p>
+  </div>
+  <div class="controls">
+    <label class="search">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+      <input type="search" id="searchInput" placeholder="Search a theme or passage — try “anger” or “work”" aria-label="Search devotionals" />
+    </label>
+    <div class="chips" role="group" aria-label="Filter archive">
+      <button class="chip" data-filter="all" aria-pressed="true">All days</button>
+      <button class="chip" data-filter="previous" aria-pressed="false">Previous</button>
+      <button class="chip" data-filter="upcoming" aria-pressed="false">Coming up</button>
+      <button class="chip" data-filter="favorites" aria-pressed="false">♥ Favorites</button>
+      <button class="chip" data-filter="unread" aria-pressed="false">Not yet read</button>
+    </div>
+    <button class="btn" id="randomBtn" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>
+      Revisit a day
+    </button>
+  </div>
+  <div class="grid" id="archiveGrid" aria-live="polite"></div>
+
+  <!-- READER -->
+  <section class="reader anchor" id="reader" aria-label="Devotional reader">
+    <div class="reader-head">
+      <div>
+        <span class="day-badge" id="readerBadge">Day 17</span>
+        <h2 id="readerTitle">Prayer first, not last</h2>
+        <p class="rh-meta" id="readerMeta">Thursday, November 19, 2026 · Philippians 4:6–7</p>
+      </div>
+      <div class="reader-nav">
+        <button class="btn" id="prevBtn" type="button">← Previous day</button>
+        <button class="btn" id="nextBtn" type="button">Next day →</button>
+      </div>
+    </div>
+    <div class="reader-body" id="readerBody"></div>
+  </section>
+
+  <!-- WEEK PLAN -->
+  <div class="section-head anchor" id="week">
+    <h2>Week 1 at a glance</h2>
+    <p>Shared Tuesday, November 3 · one theme a day</p>
+  </div>
+  <ul class="plan-list" id="planList"></ul>
+
+  <footer>
+    <p>Daily Devotionals for Men — daily readings for men at home, at work, and in their faith.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var DAYS = [
+    {
+      day: 1,
+      date: "Tuesday, November 3, 2026",
+      shortDate: "Tue, Nov 3",
+      title: "Strength isn't just physical",
+      ref: "Joshua 1:9",
+      verseKJV: "\u201CHave not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.\u201D",
+      verseESV: "\u201CHave I not commanded you? Be strong and courageous. Do not be frightened, and do not be dismayed, for the Lord your God is with you wherever you go.\u201D",
+      verseNLT: "\u201CThis is my command\u2014be strong and courageous! Do not be afraid or discouraged. For the Lord your God is with you wherever you go.\u201D",
+      thought: null,
+      prayer: null,
+      action: null,
+      note: "Day 1 opened the series on Tuesday, November 3, as the 7-day starter plan began. Its theme and passage are recorded here; the full reflections for Days 2\u20134 are kept word-for-word in this archive.",
+      status: "delivered"
+    },
+    {
+      day: 2,
+      date: "Wednesday, November 4, 2026",
+      shortDate: "Wed, Nov 4",
+      title: "Leading at home first",
+      ref: "Deuteronomy 6:6\u20137",
+      verseKJV: "\u201CAnd these words, which I command thee this day, shall be in thine heart: And thou shalt teach them diligently unto thy children, and shalt talk of them when thou sittest in thine house, and when thou walkest by the way, and when thou liest down, and when thou risest up.\u201D",
+      verseESV: "\u201CAnd these words that I command you today shall be on your heart. You shall teach them diligently to your children, and shall talk of them when you sit in your house, and when you walk by the way, and when you lie down, and when you rise.\u201D",
+      verseNLT: "\u201CAnd you must commit yourselves wholeheartedly to these commands that I am giving you today. Repeat them again and again to your children. Talk about them when you are at home and when you are on the road, when you are going to bed and when you are getting up.\u201D",
+      thought: "Leading at home doesn't start with a big speech or a perfect routine. It starts with what's on your own heart first, and then letting that shape the ordinary moments \u2014 sitting at home, driving somewhere, winding down at night.\n\nFor a man, that looks like being steady and present for his wife and family, not just providing for them. The same integrity and calm he aims for at work, and the faith he's growing in at church, is meant to show up most clearly at home, where he's seen up close every day.",
+      prayer: "Ask God to show you one ordinary moment today where you can lead with patience and faith, rather than rushing past it.",
+      action: "Pick one unhurried moment with your wife or family \u2014 a meal, a drive, or a few minutes before bed \u2014 and be fully present for it. No fixing, no multitasking. Just listen, and let your faith be part of the conversation in a natural way.",
+      status: "delivered"
+    },
+    {
+      day: 3,
+      date: "Thursday, November 5, 2026",
+      shortDate: "Thu, Nov 5",
+      title: "Integrity at work",
+      ref: "Proverbs 11:3",
+      verseKJV: "\u201CThe integrity of the upright shall guide them: but the perverseness of transgressors shall destroy them.\u201D",
+      verseESV: "\u201CThe integrity of the upright guides them, but the crookedness of the treacherous destroys them.\u201D",
+      verseNLT: "\u201CHonesty guides good people; dishonesty destroys treacherous people.\u201D",
+      thought: "Integrity is less about the big, dramatic moments and more about the small ones nobody sees \u2014 the honest answer on a call, the detail you don't cut corners on, the thing you own up to instead of smoothing over. At work, that kind of steadiness builds trust over time, and trust is what people remember about you long after any one deal or deadline. The verse says integrity guides us \u2014 it's not just a rule to follow, it's a compass. When you do the right thing even when it's slower or costs you something, you don't have to keep track of two stories. One story is enough, and it holds up.",
+      prayer: "Lord, help me be the same man at work that I am at home and at church \u2014 honest in the small things, steady when it's inconvenient, and quick to own my mistakes. Give me the courage to do right even when no one would know the difference. Amen.",
+      action: "Pick one moment at work today \u2014 an email, a conversation, a decision \u2014 and be deliberately straight with it, even if the easy version would be to gloss over something. Then notice how it feels to not have to manage a second story.",
+      status: "delivered"
+    },
+    {
+      day: 4,
+      date: "Friday, November 6, 2026",
+      shortDate: "Fri, Nov 6",
+      title: "Controlling anger",
+      ref: "James 1:19\u201320",
+      verseKJV: "\u201CWherefore, my beloved brethren, let every man be swift to hear, slow to speak, slow to wrath: For the wrath of man worketh not the righteousness of God.\u201D",
+      verseESV: "\u201CKnow this, my beloved brothers: let every person be quick to hear, slow to speak, slow to anger; for the anger of man does not produce the righteousness of God.\u201D",
+      verseNLT: "\u201CUnderstand this, my dear brothers and sisters: You must all be quick to listen, slow to speak, and slow to get angry. Human anger does not produce the righteousness God desires.\u201D",
+      thought: "Anger usually doesn't start loud. It starts as a sharp word after a long day, a clipped reply at work, or impatience with the people closest to us \u2014 the ones who least deserve it. James gives us a sequence, and the order matters: listen first, speak slowly, and let anger come last \u2014 if it comes at all. Listening is the brake. When we really hear someone before we answer, we find out most of what was about to make us angry wasn't what we thought it was. And the anger we do feel, James says plainly, doesn't produce the kind of right living God is after. It feels powerful in the moment, but it builds nothing. At home with his family, and at work, the man who can pause before he reacts is the man people trust.",
+      prayer: "Lord, slow me down today. Give me ears that listen before my mouth moves, and a heart that wants to understand before it wants to be right. When anger rises, remind me it won't build what You're building in me. Amen.",
+      action: "Pick one moment \u2014 just one \u2014 when irritation starts rising, at home or at work. Before you answer, take a breath and listen all the way through to what the other person is actually saying. Let your first response be a question or a quiet pause, not a reaction.",
+      status: "delivered"
+    },
+    {
+      day: 5,
+      date: "Saturday, November 7, 2026",
+      shortDate: "Sat, Nov 7",
+      title: "Serving, not just providing",
+      ref: "Mark 10:45",
+      verseKJV: "\u201CFor even the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many.\u201D",
+      verseESV: "\u201CFor even the Son of Man came not to be served but to serve, and to give his life as a ransom for many.\u201D",
+      verseNLT: "\u201CFor even the Son of Man came not to be served but to serve others and to give his life as a ransom for many.\u201D",
+      thought: "Providing is good \u2014 and it matters. A paycheck, a roof, a steady presence: those are real ways a man cares for his family. But Jesus sets the bar somewhere deeper. He didn't just provide for people; He served them, kneeling down and doing the work nobody else wanted to do.\n\nProviding can be done at a distance. Serving has to be done up close \u2014 noticing what your wife is carrying today, being present with your family instead of just present in the room, lending a hand at work or at church without being asked. The question isn't whether you provide. It's whether the people closest to you would say you're a servant in their life, not just a provider for it.",
+      prayer: "Lord, show me one person close to me today who needs serving, not just providing \u2014 and give me the humility to do it without making a big deal of it.",
+      action: "Do one small, unseen act of service for someone in your household today \u2014 a chore, an errand, a moment of real attention \u2014 and don't mention it.",
+      status: "delivered"
+    },
+    {
+      day: 6,
+      date: "Sunday, November 8, 2026",
+      shortDate: "Sun, Nov 8",
+      title: "Guarding your mind",
+      ref: "Philippians 4:8",
+      verseKJV: "\u201CFinally, brethren, whatsoever things are true, whatsoever things are honest, whatsoever things are just, whatsoever things are pure, whatsoever things are lovely, whatsoever things are of good report; if there be any virtue, and if there be any praise, think on these things.\u201D",
+      verseESV: "\u201CFinally, brothers, whatever is true, whatever is honorable, whatever is just, whatever is pure, whatever is lovely, whatever is commendable, if there is any excellence, if there is anything worthy of praise, think about these things.\u201D",
+      verseNLT: "\u201CAnd now, dear brothers and sisters, one final thing. Fix your thoughts on what is true, and honorable, and right, and pure, and lovely, and admirable. Think about things that are excellent and worthy of praise.\u201D",
+      thought: "What you let into your mind shapes the man you become. The news, the group chat, the worries about work, the comparisons that creep in before you even notice \u2014 all of it takes up space, and it doesn't stay neutral. Paul doesn't tell us to empty our minds; he tells us to fill them on purpose, with what is true and noble and praiseworthy.\n\nGuarding your mind isn't about pretending problems don't exist. It's about choosing, deliberately, what gets your attention first \u2014 before the day's noise decides for you. A man who starts the morning with what is good is harder to pull off course by noon.",
+      prayer: "Lord, help me notice what I'm letting into my mind today \u2014 and give me the discipline to dwell on what is true, noble, and praiseworthy instead.",
+      action: "Pick one input to guard today: skip one source of noise (a news scroll, a complaint thread, a worry loop) and replace it with five quiet minutes in the Word or in prayer before the day gets going.",
+      status: "delivered"
+    },
+    {
+      day: 7,
+      date: "Monday, November 9, 2026",
+      shortDate: "Mon, Nov 9",
+      title: "Rest is also obedience",
+      ref: "Exodus 20:8\u201310 \u00b7 Mark 2:27",
+      ref1: "Exodus 20:8\u201310",
+      verseKJV: "\u201CRemember the sabbath day, to keep it holy. Six days shalt thou labour, and do all thy work: But the seventh day is the sabbath of the LORD thy God: in it thou shalt not do any work, thou, nor thy son, nor thy daughter, thy manservant, nor thy maidservant, nor thy cattle, nor thy stranger that is within thy gates:\u201D",
+      verseESV: "\u201CRemember the Sabbath day, to keep it holy. Six days you shall labor, and do all your work, but the seventh day is a Sabbath to the LORD your God. On it you shall not do any work, you, or your son, or your daughter, your male servant, or your female servant, or your livestock, or the sojourner who is within your gates.\u201D",
+      verseNLT: "\u201CRemember to observe the Sabbath day by keeping it holy. You have six days each week for your ordinary work, but the seventh day is a Sabbath day of rest dedicated to the LORD your God. On that day no one in your household may do any work. This includes you, your sons and daughters, your male and female servants, your livestock, and any foreigners living among you.\u201D",
+      ref2: "Mark 2:27",
+      verse2KJV: "\u201CAnd he said unto them, The sabbath was made for man, and not man for the sabbath:\u201D",
+      verse2ESV: "\u201CAnd he said to them, 'The Sabbath was made for man, not man for the Sabbath.'\u201D",
+      verse2NLT: "\u201CThen Jesus said to them, 'The Sabbath was made to meet the needs of people, and not people to meet the requirements of the Sabbath.'\u201D",
+      thought: "Rest is not the reward for finishing everything \u2014 it is a command, right alongside the commands not to steal and not to lie. That is the part that cuts against the grain. A man who never stops can tell himself he is being faithful, providing, responsible. But when God sets aside a day and calls it holy, rest stops being optional and stops being laziness. It becomes obedience. Jesus adds the reason: the Sabbath was made for man. Rest is a gift built into the design, not a rule designed to slow you down. The man who refuses to rest is not proving his strength; he is saying his work matters more than God's word. Stopping on purpose is an act of trust \u2014 it says God can carry what you cannot, even for one day.",
+      prayer: "Lord, teach me to trust You enough to stop. Help me treat rest as obedience, not as something I have to earn.",
+      action: "Set one real block of rest today \u2014 an hour or more with no work, no errands, no catching up \u2014 and protect it like an appointment. Use part of it to be still before God.",
+      status: "delivered"
+    },
+    {
+      day: 8,
+      date: "Tuesday, November 10, 2026",
+      shortDate: "Tue, Nov 10",
+      title: "Patience with the people closest to you",
+      ref: "James 1:2\u20134",
+      verseKJV: "\u201CMy brethren, count it all joy when ye fall into divers temptations; Knowing this, that the trying of your faith worketh patience. But let patience have her perfect work, that ye may be perfect and entire, wanting nothing.\u201D",
+      verseESV: "\u201CCount it all joy, my brothers, when you meet trials of various kinds, for you know that the testing of your faith produces steadfastness. And let steadfastness have its full effect, that you may be perfect and complete, lacking in nothing.\u201D",
+      verseNLT: "\u201CDear brothers and sisters, when troubles of any kind come your way, consider it an opportunity for great joy. For you know that when your faith is tested, your endurance has a chance to grow. So let it grow, for when your endurance is fully developed, you will be perfect and complete, needing nothing.\u201D",
+      thought: "Patience is easiest with strangers and hardest at home, because the people closest to you are the ones who see you tired, rushed, and unguarded. James does not tell you to wait for patience to come naturally. He says the testing of your faith produces it \u2014 which means the friction itself is the workshop. The small irritations, the repeated conversations, the moments when someone needs more of you than you feel you have: those are not interruptions to your spiritual life. They are the place your spiritual life is built. God is not asking you to pretend the frustration isn't there. He is asking you to let it do its work instead of cutting it short with a sharp word or a cold silence. Patience that is allowed to finish its work leaves a man complete \u2014 not perfect in the sense of never failing, but whole, steady, and lacking nothing he needs for the next moment.",
+      prayer: "Lord, give me patience where it costs me most \u2014 with the people closest to me. Let the testing of my faith produce steadfastness, and let it finish its work in me today.",
+      action: "When someone close to you tests your patience today, pause before you answer. Take one slow breath, and respond with the calm tone you would use with a stranger \u2014 then follow through with the same grace at home.",
+      status: "delivered"
+    },
+    {
+      day: 9,
+      date: "Wednesday, November 11, 2026",
+      shortDate: "Wed, Nov 11",
+      title: "Humility at home and at work",
+      ref: "Philippians 2:3\u20134",
+      verseKJV: "\u201CLet nothing be done through strife or vainglory; but in lowliness of mind let each esteem other better than themselves. Look not every man on his own things, but every man also on the things of others.\u201D",
+      verseESV: "\u201CDo nothing from selfish ambition or conceit, but in humility count others more significant than yourselves. Let each of you look not only to his own interests, but also to the interests of others.\u201D",
+      verseNLT: "\u201CDon't be selfish; don't try to impress others. Be humble, thinking of others as better than yourselves. Don't look out only for your own interests, but take an interest in others, too.\u201D",
+      thought: "Humility is not thinking less of yourself \u2014 it is thinking of yourself less. Paul puts it plainly: do nothing from selfish ambition, and count others as more significant than yourself. That runs against the grain at home and at work, where the pressure is to prove your worth, win the argument, and get the credit. But humility is what actually holds a household and a team together. The man who has to be right every time exhausts everyone around him. The man who listens first, admits when he is wrong, and looks out for the interests of others creates room for people to breathe \u2014 and in that room, trust grows. Humility is not weakness. It takes real strength to set your own agenda aside and serve someone else's good first. And the pattern is Christ himself, who did not cling to his place but stepped down to serve. When you choose humility today, you are choosing to look like him.",
+      prayer: "Lord, keep me from selfish ambition and the need to impress. Teach me to count others as more significant than myself, and to look out for their interests as well as my own.",
+      action: "In one conversation today \u2014 at home or at work \u2014 listen fully before you respond, and let the other person have the last word. If you are wrong about something, say so plainly, without defending yourself.",
+      status: "delivered"
+    },
+    {
+      day: 10,
+      date: "Thursday, November 12, 2026",
+      shortDate: "Thu, Nov 12",
+      title: "Forgiving quickly",
+      ref: "Ephesians 4:31\u201332",
+      verseKJV: "\u201CLet all bitterness, and wrath, and anger, and clamour, and evil speaking, be put away from you, with all malice: And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ's sake hath forgiven you.\u201D",
+      verseESV: "\u201CLet all bitterness and wrath and anger and clamor and slander be put away from you, along with all malice. Be kind to one another, tenderhearted, forgiving one another, as God in Christ forgave you.\u201D",
+      verseNLT: "\u201CGet rid of all bitterness, rage, anger, harsh words, and slander, as well as all types of evil behavior. Instead, be kind to each other, tenderhearted, forgiving one another, just as God through Christ has forgiven you.\u201D",
+      thought: "Forgiveness is not pretending the hurt did not happen. It is refusing to carry it any longer. Paul lists what has to go \u2014 bitterness, wrath, anger, harsh words, slander, malice \u2014 and the list is long because resentment rarely stays in one place. It spreads. A grudge held against one person starts coloring every conversation, every disagreement, every drive home. That is why Paul says to forgive quickly, not eventually. The longer an offense sits unaddressed, the deeper its roots grow, and the harder it is to pull out. Forgiving quickly is a decision before it is a feeling. You may not feel ready, and the other person may not deserve it \u2014 that is the point. Forgiveness is not earned by the one who wronged you; it is given by the one who has been forgiven. God forgave in Christ, fully and freely, and that is the measure Paul sets: forgive one another as God forgave you. When you release someone, you are not saying what they did was right. You are saying it will not own you anymore. And the replacement matters too \u2014 kindness and a tender heart take the place bitterness used to occupy. A man who forgives quickly keeps his heart free, his home peaceful, and his conscience clear.",
+      prayer: "Lord, show me any bitterness I am still carrying, and give me the strength to let it go. Teach me to be kind and tenderhearted, forgiving others just as you have forgiven me in Christ.",
+      action: "Think of one person you have been holding something against, even a small thing. Forgive them in prayer today \u2014 and if it is right, tell them plainly that you have let it go, without rehearsing the offense again.",
+      status: "delivered"
+    },
+    {
+      day: 11,
+      date: "Friday, November 13, 2026",
+      shortDate: "Fri, Nov 13",
+      title: "Generosity with time, not just money",
+      ref: "2 Corinthians 9:6\u20137",
+      verseKJV: "\u201CBut this I say, He which soweth sparingly shall reap also sparingly; and he which soweth bountifully shall reap also bountifully. Every man according as he purposeth in his heart, so let him give; not grudgingly, or of necessity: for God loveth a cheerful giver.\u201D",
+      verseESV: "\u201CThe point is this: whoever sows sparingly will also reap sparingly, and whoever sows bountifully will also reap bountifully. Each one must give as he has decided in his heart, not reluctantly or under compulsion, for God loves a cheerful giver.\u201D",
+      verseNLT: "\u201CRemember this\u2014a farmer who plants only a few seeds will get a small crop. But the one who plants generously will get a generous crop. You must each decide in your heart how much to give. And don't give reluctantly or in response to pressure. \u2018For God loves a person who gives cheerfully.\u2019\u201D",
+      thought: "Paul's picture is a farmer, not an accountant. A farmer does not give seed away \u2014 he plants it, trusting that what goes into the ground comes back multiplied. Generosity works the same way. What is given freely, with a willing heart, is never wasted; it grows into something larger than the gift itself. And Paul is careful about the heart behind it. Giving that is grudging, or done only because of pressure, misses the point entirely. God is not after the amount. He is after the cheerfulness \u2014 a heart that gives because it wants to, not because it has to.\n\nMost men think of generosity in terms of money, but time is often the harder gift. Money can be given at a distance; time cannot. Time requires presence \u2014 sitting with someone who is struggling, helping a neighbor without being asked, showing up for a friend when it costs an evening. That kind of giving is decided in the heart before it ever happens, the way Paul describes: a man purposes in his heart what he will give, and then gives it gladly.\n\nThe harvest is not always visible right away. A farmer does not dig up the seed the next morning to check on it. He trusts the process. Give generously today \u2014 with your time, your attention, and what you have \u2014 and leave the harvest to God.",
+      prayer: "Lord, show me where I have been holding back \u2014 my time, my attention, or what I have. Give me a cheerful heart to give freely, without grudging or pressure, trusting you with what comes of it.",
+      action: "Give one hour of your time today to someone else with no expectation of anything in return \u2014 help with a task, listen without rushing, or simply be present. Decide in advance what you will give, and give it gladly.",
+      status: "delivered"
+    },
+    {
+      day: 12,
+      date: "Saturday, November 14, 2026",
+      shortDate: "Sat, Nov 14",
+      title: "Courage to speak about your faith",
+      ref: "Romans 1:16",
+      verseKJV: "\u201CFor I am not ashamed of the gospel of Christ: for it is the power of God unto salvation to every one that believeth; to the Jew first, and also to the Greek.\u201D",
+      verseESV: "\u201CFor I am not ashamed of the gospel, for it is the power of God for salvation to everyone who believes, to the Jew first and also to the Greek.\u201D",
+      verseNLT: "\u201CFor I am not ashamed of this Good News about Christ. It is the power of God at work, saving everyone who believes\u2014the Jew first and also the Gentile.\u201D",
+      thought: "Paul wrote these words to believers living in Rome, the very center of power in his world \u2014 a place where confessing Christ could cost a man his standing, his livelihood, or his life. He was not writing from a safe distance. He was on his way there, and he knew what waited for him. Yet his opening declaration is not fear or apology. It is confidence: he is not ashamed of the gospel. Shame is often what keeps faith silent. Not disagreement, not lack of words \u2014 shame. The worry about what others will think, the fear of sounding foolish, the habit of keeping the most important thing in life private. Paul's answer to that fear is not to work up more boldness on his own. It is to look again at what the gospel actually is: the power of God at work, saving everyone who believes. The message does not depend on the eloquence or the courage of the man who speaks it. The power is in the message itself. Courage to speak about faith rarely looks like a grand speech. Most of the time it looks like a simple, honest answer when someone asks why you live the way you do. It looks like mentioning what you believe without shrinking from it, or offering to pray for someone who is hurting instead of only saying you hope things get better. The gospel Paul carried crossed every boundary \u2014 to the Jew first and also to the Gentile \u2014 because it was never meant to be a private possession. What God has done is too good to keep quiet about, and the power to change a life is in the telling, not in the keeping.",
+      prayer: "Lord, take away the shame that keeps me quiet about my faith. Remind me that the gospel is your power at work, not mine. Give me the courage to speak plainly and honestly about what I believe when the moment comes.",
+      action: "Speak about your faith once today in a natural, honest way \u2014 answer a question truthfully, mention what you believe, or offer to pray for someone who needs it. Do not force a conversation; simply refuse to hide what you believe when the opportunity comes.",
+      status: "delivered"
+    },
+    {
+      day: 13,
+      date: "Sunday, November 15, 2026",
+      shortDate: "Sun, Nov 15",
+      title: "Gratitude in ordinary days",
+      ref: "1 Thessalonians 5:16\u201318",
+      verseKJV: "\u201CRejoice evermore. Pray without ceasing. In every thing give thanks: for this is the will of God in Christ Jesus concerning you.\u201D",
+      verseESV: "\u201CRejoice always, pray without ceasing, give thanks in all circumstances; for this is the will of God in Christ Jesus for you.\u201D",
+      verseNLT: "\u201CAlways be joyful. Never stop praying. Be thankful in all circumstances, for this is God's will for you who belong to Christ Jesus.\u201D",
+      thought: "Three short commands, and none of them waits for a special occasion. Rejoice always. Pray without ceasing. Give thanks in all circumstances. Paul wrote these words to a church facing real hardship, not to people living easy lives \u2014 which means gratitude was never meant to depend on everything going well. It is a practice for ordinary days, the ones that look like nothing in particular: the morning routine, the commute, the workday, the meal at the table, the quiet evening at home.\n\nIt is easy to treat thankfulness as something reserved for the big moments \u2014 a promotion, a recovery, a celebration. But most of life is not made of big moments. It is made of ordinary ones, repeated day after day, and those are the days gratitude is meant to shape. Giving thanks in all circumstances does not mean pretending hard things are good. It means refusing to let the hard things blind you to the good that is still there: breath, provision, people, another morning. A man who only gives thanks when life is going his way has made his gratitude a fair-weather habit. A man who gives thanks on an ordinary Tuesday has learned to see what God is doing in the middle of a normal life.\n\nNotice what Paul ties these commands to: \u201Cfor this is the will of God in Christ Jesus for you.\u201D Gratitude is not a personality trait or a mood. It is God's will \u2014 something to be obeyed, not just felt. Joy, prayer, and thankfulness belong together. A man who prays through the day will find reasons to rejoice, and a man who rejoices will find reasons to give thanks. The ordinary day becomes the training ground for all three.",
+      prayer: "Lord, open my eyes to the good in this ordinary day. Teach me to rejoice when nothing feels remarkable, to pray through the small moments, and to give thanks in every circumstance, because this is your will for me.",
+      action: "Before the day ends, name three ordinary things you are thankful for \u2014 things so normal you usually overlook them \u2014 and say them out loud in prayer. Then thank one person today for something ordinary they did.",
+      status: "delivered"
+    },
+    {
+      day: 14,
+      date: "Monday, November 16, 2026",
+      shortDate: "Mon, Nov 16",
+      title: "Leading by example",
+      ref: "1 Timothy 4:12",
+      verseKJV: "\u201CLet no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.\u201D",
+      verseESV: "\u201CLet no one despise you for your youth, but set the believers an example in speech, in conduct, in love, in faith, in purity.\u201D",
+      verseNLT: "\u201CDon't let anyone think less of you because you are young. Be an example to all believers in what you say, in the way you live, in your love, your faith, and your purity.\u201D",
+      thought: "Paul's instruction to Timothy is not about age. It is about authority \u2014 and where real authority comes from. Timothy was young, and others were tempted to dismiss him for it. Paul does not tell him to demand respect or to prove himself with arguments. He tells him to live in a way that makes dismissal impossible. Be an example. Let the life do the talking. The list Paul gives is practical, not abstract: what you say, how you live, how you love, what you believe, how pure your life is. None of these require a title, a platform, or years of experience. They require consistency. A man leads by example long before anyone calls him a leader, and the people watching him most closely are usually the ones nearest to him \u2014 at home, at work, in the everyday places where his words and his conduct are on full display. It is tempting to think leadership means telling others what to do. Paul's picture is different: leadership means living in a way others can follow. Your speech sets a tone. Your conduct sets a standard. Your love sets a pattern. When those line up with what you say you believe, people notice \u2014 not because you announced it, but because they watched it happen, day after day. Example is the one form of leadership no one can take from you and no one can fake for long.",
+      prayer: "Lord, make my life worth following. Guard my words, steady my conduct, grow my love, deepen my faith, and keep me pure \u2014 so that the example I set points others toward you, not toward me.",
+      action: "Pick one area from the verse \u2014 speech, conduct, love, faith, or purity \u2014 and choose one specific way to live it out visibly today, where someone else can see it. Then follow through, even if no one comments on it.",
+      status: "delivered"
+    },
+    {
+      day: 15,
+      date: "Tuesday, November 17, 2026",
+      shortDate: "Tue, Nov 17",
+      title: "Trusting God when you can't see the way",
+      ref: "Proverbs 3:5\u20136",
+      verseKJV: "\u201CTrust in the LORD with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.\u201D",
+      verseESV: "\u201CTrust in the LORD with all your heart, and do not lean on your own understanding. In all your ways acknowledge him, and he will make straight your paths.\u201D",
+      verseNLT: "\u201CTrust in the LORD with all your heart; do not depend on your own understanding. Seek his will in all you do, and he will show you which path to take.\u201D",
+      thought: "Trust is easy when the road is clear. It is a different matter when the way forward is fogged over \u2014 when the decision is big, the outcome is uncertain, and the map you have does not show the next turn. That is the moment this passage speaks to. It does not promise that God will hand you the full route in advance. It promises something better: direction, one step at a time, as you walk. \u201CLean not unto thine own understanding\u201D is not an insult to thinking. It is a warning about its limits. Your understanding is real, but it is partial \u2014 it sees what is in front of you, not what is around the next bend. Trusting God with all your heart means admitting that limit honestly, and then doing what the second verse asks: acknowledge Him in all your ways. Not in the big decisions only, but in all of them \u2014 the small choices, the daily habits, the conversations, the plans. A man who brings God into the ordinary decisions will not have to wonder where God is when the hard ones arrive. The promise is not that the path will be easy, or short, or free of trouble. The promise is that He will direct it \u2014 make it straight, show you which way to take. You do not need to see the whole road to take the next step. You need to trust the One who sees it, and walk.",
+      prayer: "Lord, I admit I cannot see the whole way ahead. Teach me to trust you with all my heart instead of leaning on my own understanding. Show me the next step, and give me the courage to take it.",
+      action: "Name one decision or situation where you cannot see the outcome clearly. Before you act on it today, pause and acknowledge God in it \u2014 ask Him plainly for direction, then take the next step you believe He is showing you, even if the step after that is still unclear.",
+      status: "delivered",
+      series: "next"
+    },
+    {
+      day: 16,
+      date: "Wednesday, November 18, 2026",
+      shortDate: "Wed, Nov 18",
+      title: "Faithfulness in small things",
+      ref: "Luke 16:10",
+      verseKJV: "\u201CHe that is faithful in that which is least is faithful also in much: and he that is unjust in the least is unjust also in much.\u201D",
+      verseESV: "\u201COne who is faithful in a very little is also faithful in much, and one who is dishonest in a very little is also dishonest in much.\u201D",
+      verseNLT: "\u201CIf you are faithful in little things, you will be faithful in large ones. But if you are dishonest in little things, you won't be honest with greater responsibilities.\u201D",
+      thought: "Faithfulness is proved in the least \u2014 small things are not practice for the real test, they are the real test. What a man does when no one is watching is who he actually is, and every small act of faithfulness builds character that can hold weight.",
+      prayer: "Lord, help me to be faithful in the little things today. Show me the small places where I am tempted to cut corners or look the other way, and give me the integrity to do what is right, even when no one will ever know.",
+      action: "Pick one small thing today \u2014 a promise to keep, a task to finish properly, a truth to tell plainly \u2014 and do it with full care, even though no one is watching and it would be easy to let it slide.",
+      status: "delivered",
+      series: "next"
+    },
+    {
+      day: 17,
+      date: "Thursday, November 19, 2026",
+      shortDate: "Thu, Nov 19",
+      title: "Prayer first, not last",
+      ref: "Philippians 4:6\u20137",
+      verseKJV: "\u201CBe careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.\u201D",
+      verseESV: "\u201Cdo not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.\u201D",
+      verseNLT: "\u201CDon't worry about anything; instead, pray about everything. Tell God what you need, and thank him for all he has done. Then you will experience God's peace, which exceeds anything we can understand. His peace will guard your hearts and minds as you live in Christ Jesus.\u201D",
+      thought: "Most men pray last. Not because they do not believe in prayer, but because prayer feels like what you do after you have tried everything else \u2014 after the plan, the phone call, the late night of turning the problem over in your head. Paul reverses the order completely: do not be anxious about anything, but in everything, by prayer, let your requests be made known to God. Prayer is not the backup plan. It is the first move.\n\nNotice how wide Paul makes it: in everything. Not only the crises and the big decisions, but the ordinary worries too \u2014 the conversation you are dreading, the bill you are not sure how to cover, the pressure that has been sitting on your chest all week. Nothing is too small to bring to God, and nothing is too big. Anxiety grows in the dark, in the places you carry alone. Prayer brings it into the light, before the One who can actually do something about it.\n\nAnd notice what Paul pairs with the request: thanksgiving. You do not come to God only with the problem. You come remembering what He has already done. Gratitude does not minimize the worry \u2014 it puts it in its place, beside a record of faithfulness that is longer than today's trouble.\n\nThen comes the promise, and it is not what most men expect. God does not promise to remove the situation or explain it. He promises peace \u2014 a peace that surpasses understanding, that does not wait for the problem to be solved before it arrives. It guards your heart and your mind, like a sentry posted at the two places worry attacks first: what you feel and what you think. That peace is not a feeling you work up. It is the result of having handed the thing over. You cannot carry it and hand it over at the same time. Prayer first means letting go first \u2014 and the peace follows the letting go.",
+      prayer: "Lord, I admit I usually try to handle things myself first and only turn to you when I run out of options. Teach me to come to you first. Take the worries I am carrying today, and give me your peace \u2014 the kind that guards my heart and my mind even before the answers come.",
+      action: "Before you try to fix, plan, or worry your way through the biggest thing on your mind today, stop and pray about it first \u2014 name it plainly to God, thank Him for one thing He has already done, and then go about your day without picking the worry back up.",
+      status: "delivered",
+      today: true,
+      series: "next"
+    },
+    {
+      day: 18,
+      date: "Friday, November 20, 2026",
+      shortDate: "Fri, Nov 20",
+      title: "Contentment in every season",
+      ref: "Philippians 4:11\u201313",
+      status: "upcoming",
+      series: "next"
+    },
+    {
+      day: 19,
+      date: "Saturday, November 21, 2026",
+      shortDate: "Sat, Nov 21",
+      title: "Strength in weakness",
+      ref: "2 Corinthians 12:9\u201310",
+      status: "upcoming",
+      series: "next"
+    },
+    {
+      day: 20,
+      date: "Sunday, November 22, 2026",
+      shortDate: "Sun, Nov 22",
+      title: "Keeping your word",
+      ref: "Ecclesiastes 5:4\u20135",
+      status: "upcoming",
+      series: "next"
+    },
+    {
+      day: 21,
+      date: "Monday, November 23, 2026",
+      shortDate: "Mon, Nov 23",
+      title: "Hope that holds in hard times",
+      ref: "Romans 15:13",
+      status: "upcoming",
+      series: "next"
+    }
+  ];
+
+  var readSet = {};      // day -> true (this visit only)
+  var favSet = {};       // day -> true (this visit only)
+  var currentDay = 17;
+  var activeFilter = "all";
+
+  function byId(id){ return document.getElementById(id); }
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function paras(text){
+    return text.split("\n\n").map(function(p){ return '<p class="dev-text">' + esc(p) + '</p>'; }).join("");
+  }
+  function heartSVG(filled){
+    return '<svg width="17" height="17" viewBox="0 0 24 24" fill="' + (filled ? "currentColor" : "none") + '" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.8 5.1a5 5 0 0 0-7.1 0L12 5.8l-.7-.7a5 5 0 1 0-7.1 7.1l7.8 7.8 7.8-7.8a5 5 0 0 0 0-7.1z"/></svg>';
+  }
+  function checkSVG(){
+    return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>';
+  }
+
+  function devotionalBodyHTML(d, includeTitle){
+    var h = "";
+    if (d.verseKJV && d.verseESV && d.verseNLT){
+      h += '<div class="passage"><p class="ref">The passage \u2014 ' + esc(d.ref1 || d.ref) + '</p>' +
+        '<div class="version"><p class="version-label">KJV</p><blockquote>' + esc(d.verseKJV) + '</blockquote></div>' +
+        '<div class="version"><p class="version-label">ESV</p><blockquote>' + esc(d.verseESV) + '</blockquote></div>' +
+        '<div class="version"><p class="version-label">NLT</p><blockquote>' + esc(d.verseNLT) + '</blockquote></div></div>';
+      if (d.verse2KJV && d.verse2ESV && d.verse2NLT){
+        h += '<div class="passage"><p class="ref">Also read \u2014 ' + esc(d.ref2) + '</p>' +
+          '<div class="version"><p class="version-label">KJV</p><blockquote>' + esc(d.verse2KJV) + '</blockquote></div>' +
+          '<div class="version"><p class="version-label">ESV</p><blockquote>' + esc(d.verse2ESV) + '</blockquote></div>' +
+          '<div class="version"><p class="version-label">NLT</p><blockquote>' + esc(d.verse2NLT) + '</blockquote></div></div>';
+      }
+    } else if (d.verse){
+      h += '<div class="passage"><p class="ref">The passage \u2014 ' + esc(d.ref) + '</p><blockquote>' + esc(d.verse) + '</blockquote></div>';
+    } else {
+      h += '<div class="passage"><p class="ref">The passage \u2014 ' + esc(d.ref) + '</p><p class="dev-text">Reading for ' + esc(d.date) + '. The full devotional text will be added on the day.</p></div>';
+    }
+    if (d.thought){
+      h += '<p class="block-label">A short thought</p>' + paras(d.thought);
+      h += '<p class="block-label">A prayer</p><p class="dev-text">' + esc(d.prayer) + '</p>';
+      h += '<div class="action-box"><p class="block-label">One thing to do today</p><p>' + esc(d.action) + '</p></div>';
+    } else if (d.note){
+      h += '<p class="note-box">' + esc(d.note) + '</p>';
+    }
+    return h;
+  }
+
+  /* ----- Today card ----- */
+  function renderToday(){
+    var d = DAYS.filter(function(x){ return x.today; })[0];
+    var isRead = !!readSet[d.day];
+    var isFav = !!favSet[d.day];
+    byId("todayCard").innerHTML =
+      '<div class="today-banner"><div class="tb-left">' +
+        '<span class="sun-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span>' +
+        '<div><p class="tb-kicker">Today \u00b7 Day ' + d.day + '</p><p class="tb-title">' + esc(d.title) + '</p></div>' +
+      '</div><span class="tb-date">' + esc(d.date) + '</span></div>' +
+      '<div class="today-body">' + devotionalBodyHTML(d) +
+        '<div class="today-actions">' +
+          '<button class="btn primary" id="todayReadBtn" type="button" aria-pressed="' + isRead + '">' + (isRead ? checkSVG() + " Read \u2014 well done" : "Mark today as read") + '</button>' +
+          '<button class="btn" id="todayFavBtn" type="button" aria-pressed="' + isFav + '">' + heartSVG(isFav) + (isFav ? "Favorited" : "Favorite this day") + '</button>' +
+          '<button class="btn" id="todayOpenBtn" type="button">Open in reader</button>' +
+        '</div>' +
+      '</div>';
+    byId("todayReadBtn").addEventListener("click", function(){ toggleRead(d.day); });
+    byId("todayFavBtn").addEventListener("click", function(){ toggleFav(d.day); });
+    byId("todayOpenBtn").addEventListener("click", function(){ openDay(d.day, true); });
+  }
+
+  /* ----- Archive grid ----- */
+  function excerptFor(d){
+    if (d.thought) return d.thought.split("\n\n")[0];
+    var v = d.verse || d.verseESV;
+    if (v) return v.replace(/[\u201C\u201D]/g, "");
+    return "Coming up " + d.date + " \u00b7 " + d.ref + " \u2014 full devotional to be added on the day.";
+  }
+  function matchesFilter(d){
+    if (activeFilter === "all") return true;
+    if (activeFilter === "previous") return d.status === "delivered";
+    if (activeFilter === "upcoming") return d.status === "upcoming";
+    if (activeFilter === "favorites") return !!favSet[d.day];
+    if (activeFilter === "unread") return d.status === "delivered" && !readSet[d.day];
+    return true;
+  }
+  function matchesSearch(d, q){
+    if (!q) return true;
+    var hay = (d.title + " " + d.ref + " " + (d.thought || "") + " " + (d.verse || "") + " " + (d.verseKJV || "") + " " + (d.verseESV || "") + " " + (d.verseNLT || "") + " " + (d.verse2KJV || "") + " " + (d.verse2ESV || "") + " " + (d.verse2NLT || "") + " day " + d.day).toLowerCase();
+    return hay.indexOf(q) !== -1;
+  }
+  function renderGrid(){
+    var q = byId("searchInput").value.trim().toLowerCase();
+    var grid = byId("archiveGrid");
+    var list = DAYS.filter(function(d){ return matchesFilter(d) && matchesSearch(d, q); });
+    if (!list.length){
+      grid.innerHTML = '<div class="empty"><strong>No days match that yet</strong>Try a different word, or clear the search to see the whole archive.</div>';
+      return;
+    }
+    grid.innerHTML = list.map(function(d){
+      var isRead = !!readSet[d.day];
+      var isFav = !!favSet[d.day];
+      var badgeCls = d.status === "upcoming" ? "soon" : (isRead ? "done" : "");
+      var badgeTxt = d.status === "upcoming" ? ("Day " + d.day + " \u00b7 Coming") : ("Day " + d.day + (d.today ? " \u00b7 Today" : ""));
+      var statusTxt = d.status === "upcoming"
+        ? "Arrives " + d.shortDate + " \u00b7 5:00 a.m."
+        : (isRead ? '<span class="dc-status read">' + checkSVG() + ' Read</span>' : "Tap to read");
+      return '<div class="day-card' + (d.status === "upcoming" ? " upcoming" : "") + (d.day === currentDay ? " selected" : "") + '" role="button" tabindex="0" data-day="' + d.day + '" aria-label="Open Day ' + d.day + ': ' + esc(d.title) + '">' +
+        '<div class="dc-top"><span class="day-badge ' + badgeCls + '">' + badgeTxt + '</span><span class="dc-date">' + esc(d.shortDate) + '</span></div>' +
+        '<h3>' + esc(d.title) + '</h3>' +
+        '<p class="dc-ref">' + esc(d.ref) + '</p>' +
+        '<p class="dc-excerpt">' + esc(excerptFor(d)) + '</p>' +
+        '<div class="dc-foot"><span class="dc-status">' + statusTxt + '</span>' +
+        '<button class="heart-btn" type="button" data-fav="' + d.day + '" aria-pressed="' + isFav + '" aria-label="Favorite Day ' + d.day + '">' + heartSVG(isFav) + '</button></div>' +
+      '</div>';
+    }).join("");
+
+    Array.prototype.forEach.call(grid.querySelectorAll(".day-card"), function(card){
+      var day = parseInt(card.getAttribute("data-day"), 10);
+      card.addEventListener("click", function(e){
+        if (e.target.closest("[data-fav]")) return;
+        openDay(day, true);
+      });
+      card.addEventListener("keydown", function(e){
+        if (e.key === "Enter" || e.key === " "){ e.preventDefault(); openDay(day, true); }
+      });
+    });
+    Array.prototype.forEach.call(grid.querySelectorAll("[data-fav]"), function(btn){
+      btn.addEventListener("click", function(e){
+        e.stopPropagation();
+        toggleFav(parseInt(btn.getAttribute("data-fav"), 10));
+      });
+    });
+  }
+
+  /* ----- Reader ----- */
+  function renderReader(){
+    var d = DAYS[currentDay - 1];
+    var badge = byId("readerBadge");
+    badge.textContent = d.status === "upcoming" ? ("Day " + d.day + " \u00b7 Coming " + d.shortDate) : ("Day " + d.day + (d.today ? " \u00b7 Today" : ""));
+    badge.className = "day-badge" + (d.status === "upcoming" ? " soon" : (readSet[d.day] ? " done" : ""));
+    byId("readerTitle").textContent = d.title;
+    byId("readerMeta").textContent = d.date + " \u00b7 " + d.ref;
+    var isRead = !!readSet[d.day];
+    var isFav = !!favSet[d.day];
+    var actions = "";
+    if (d.status === "delivered"){
+      actions = '<div class="today-actions">' +
+        '<button class="btn primary" id="readerReadBtn" type="button" aria-pressed="' + isRead + '">' + (isRead ? checkSVG() + " Read" : "Mark as read") + '</button>' +
+        '<button class="btn" id="readerFavBtn" type="button" aria-pressed="' + isFav + '">' + heartSVG(isFav) + (isFav ? "Favorited" : "Favorite this day") + '</button>' +
+      '</div>';
+    } else {
+      actions = '<div class="today-actions"><button class="btn" id="readerFavBtn" type="button" aria-pressed="' + isFav + '">' + heartSVG(isFav) + (isFav ? "Favorited" : "Favorite this day") + '</button></div>';
+    }
+    byId("readerBody").innerHTML = devotionalBodyHTML(d) + actions;
+    var rb = byId("readerReadBtn");
+    if (rb) rb.addEventListener("click", function(){ toggleRead(d.day); });
+    byId("readerFavBtn").addEventListener("click", function(){ toggleFav(d.day); });
+    byId("prevBtn").disabled = currentDay <= 1;
+    byId("nextBtn").disabled = currentDay >= DAYS.length;
+    byId("prevBtn").style.opacity = currentDay <= 1 ? ".45" : "1";
+    byId("nextBtn").style.opacity = currentDay >= DAYS.length ? ".45" : "1";
+  }
+
+  function openDay(day, scroll){
+    currentDay = day;
+    renderReader();
+    renderGrid();
+    if (scroll){
+      byId("reader").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  /* ----- State toggles ----- */
+  function updateStats(){
+    var readCount = Object.keys(readSet).length;
+    var favCount = Object.keys(favSet).length;
+    byId("statRead").textContent = readCount;
+    byId("statFav").textContent = favCount;
+    var delivered = 7;
+    byId("progressFill").style.width = (delivered / 7 * 100) + "%";
+    byId("progressBar").setAttribute("aria-valuenow", delivered);
+  }
+  function toggleRead(day){
+    if (readSet[day]) delete readSet[day]; else readSet[day] = true;
+    renderToday(); renderReader(); renderGrid(); updateStats();
+  }
+  function toggleFav(day){
+    if (favSet[day]) delete favSet[day]; else favSet[day] = true;
+    renderToday(); renderReader(); renderGrid(); updateStats();
+  }
+
+  /* ----- Week plan ----- */
+  function renderPlan(){
+    byId("planList").innerHTML = DAYS.filter(function(d){ return d.day <= 7; }).map(function(d){
+      var cls = d.status === "upcoming" ? "" : (d.today ? "today" : "done");
+      var mark = d.status === "delivered" && !d.today ? "\u2713" : d.day;
+      return '<li class="' + cls + '"><span class="pn">' + mark + '</span><div><div class="pt">' + esc(d.title) + '</div><div class="pr">Day ' + d.day + ' \u00b7 ' + esc(d.ref) + ' \u00b7 ' + esc(d.shortDate) + '</div></div></li>';
+    }).join("");
+    var nextEl = byId("nextList");
+    if (nextEl){
+      nextEl.innerHTML = DAYS.filter(function(d){ return d.series === "next"; }).map(function(d){
+        var cls = d.today ? "today" : (d.status === "delivered" ? "done" : "next-item");
+        var mark = d.status === "delivered" && !d.today ? "\u2713" : d.day;
+        return '<li class="' + cls + '"><span class="pn">' + mark + '</span><div><div class="pt">' + esc(d.title) + '</div><div class="pr">Day ' + d.day + ' \u00b7 ' + esc(d.ref) + ' \u00b7 ' + esc(d.date) + '</div></div></li>';
+      }).join("");
+    }
+  }
+
+  /* ----- Controls wiring ----- */
+  Array.prototype.forEach.call(document.querySelectorAll(".chip"), function(chip){
+    chip.addEventListener("click", function(){
+      activeFilter = chip.getAttribute("data-filter");
+      Array.prototype.forEach.call(document.querySelectorAll(".chip"), function(c){
+        c.setAttribute("aria-pressed", c === chip ? "true" : "false");
+      });
+      renderGrid();
+    });
+  });
+  byId("searchInput").addEventListener("input", renderGrid);
+  byId("randomBtn").addEventListener("click", function(){
+    var delivered = DAYS.filter(function(d){ return d.status === "delivered"; });
+    var pick = delivered[Math.floor(Math.random() * delivered.length)];
+    openDay(pick.day, true);
+  });
+  var todayLink = byId("todayMenuLink");
+  if (todayLink){
+    todayLink.addEventListener("click", function(e){
+      e.preventDefault();
+      var todayEntry = DAYS.filter(function(x){ return x.today; })[0];
+      var targetDay = todayEntry ? todayEntry.day : currentDay;
+      openDay(targetDay, true);
+    });
+  }
+  byId("prevBtn").addEventListener("click", function(){ if (currentDay > 1) openDay(currentDay - 1, true); });
+  byId("nextBtn").addEventListener("click", function(){ if (currentDay < DAYS.length) openDay(currentDay + 1, true); });
+  document.addEventListener("keydown", function(e){
+    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+    if (e.key === "ArrowLeft" && currentDay > 1) openDay(currentDay - 1, false);
+    if (e.key === "ArrowRight" && currentDay < DAYS.length) openDay(currentDay + 1, false);
+  });
+
+  renderToday();
+  renderGrid();
+  renderReader();
+  renderPlan();
+  updateStats();
+})();
+</script>
+</body>
+</html>
