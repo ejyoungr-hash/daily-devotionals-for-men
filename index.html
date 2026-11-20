@@ -84,23 +84,6 @@
   .lede{font-size:1.06rem; color:var(--ink-soft); max-width:58ch; margin:0}
   .lede strong{color:var(--ink)}
 
-  .progress-row{display:flex; flex-wrap:wrap; gap:14px; align-items:stretch; margin-top:22px}
-  .progress-card{
-    flex:1 1 300px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-    padding:16px 18px; box-shadow:var(--shadow);
-  }
-  .progress-card .pc-label{font-size:.78rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:var(--gold); margin:0 0 6px}
-  .progress-card .pc-big{font-family:"Newsreader", Georgia, serif; font-size:1.5rem; font-weight:600; margin:0 0 8px}
-  .bar{height:9px; border-radius:99px; background:var(--bg-soft); overflow:hidden; border:1px solid var(--line)}
-  .bar > div{height:100%; width:0%; background:var(--gold); border-radius:99px; transition:width .5s ease}
-  .progress-card .pc-note{font-size:.88rem; color:var(--muted); margin:8px 0 0}
-  .mini-stat{
-    flex:0 1 150px; background:var(--pine-soft); border:1px solid var(--line); border-radius:var(--radius);
-    padding:16px 18px; display:flex; flex-direction:column; justify-content:center;
-  }
-  .mini-stat .n{font-family:"Newsreader", Georgia, serif; font-size:1.9rem; font-weight:700; line-height:1; color:var(--pine)}
-  .mini-stat .t{font-size:.82rem; font-weight:600; color:var(--ink-soft); margin-top:5px}
-
   /* ---------- Today's devotional ---------- */
   .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin:38px 0 14px; flex-wrap:wrap}
   .section-head h2{font-family:"Newsreader", Georgia, serif; font-size:1.65rem; font-weight:600; margin:0}
@@ -143,7 +126,6 @@
   .action-box .block-label{margin-top:0; color:var(--gold-strong)}
   .action-box p{margin:0; color:var(--ink); line-height:1.65}
 
-  .today-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px}
   button{font:inherit; cursor:pointer}
   .btn{
     display:inline-flex; align-items:center; gap:8px; border-radius:999px; padding:10px 18px;
@@ -201,11 +183,6 @@
   .dc-excerpt{font-size:.92rem; color:var(--ink-soft); line-height:1.55; margin:0; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
   .dc-status{font-size:.82rem; font-weight:700; color:var(--muted); display:inline-flex; align-items:center; gap:6px; margin-top:6px}
   .dc-status.read{color:var(--pine)}
-  .heart-btn{
-    border:1px solid var(--line); background:var(--card-2); width:36px; height:36px; border-radius:50%;
-    display:grid; place-items:center; color:var(--muted); flex:none;
-  }
-  .heart-btn[aria-pressed="true"]{background:#3d2721; color:#e08a72; border-color:#8a4a38}
   .empty{
     border:1.5px dashed var(--line-strong); border-radius:var(--radius); padding:34px 22px; text-align:center; color:var(--muted);
     width:100%; background:var(--card); margin-top:16px;
@@ -259,7 +236,6 @@
     .today-banner,.reader-head{padding-left:19px; padding-right:19px}
     .day-card{gap:10px; padding:13px 2px}
     .day-card .day-badge{font-size:.68rem; padding:4px 8px}
-    .mini-stat{flex:1 1 130px}
   }
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
@@ -274,8 +250,8 @@
     <a href="#today" id="todayMenuLink">Today</a>
     <a href="#next-series">The next series</a>
     <a href="#archive" class="archive-link">Archive — previous days</a>
-    <a href="#week">Week 1</a>
-    <a href="https://ejyoungr-hash.github.io/moon/" class="moon-link" target="_blank" rel="noopener">Moon site ↗</a>
+    <a href="#week">Previous week</a>
+    <a href="https://muse.ai/s/moon-xnxt6xnxv38xoqxbx0/3Re2TDxQk4hasy124MJjAp3I8h-7VhnihO3UQySmJic" class="moon-link" target="_blank" rel="noopener">Moon site ↗</a>
   </nav>
 </div>
 
@@ -287,17 +263,6 @@
     </div>
     <h1>Daily Devotionals for Men</h1>
     <p class="lede">Good morning. This is home base for daily devotionals for men — <strong>today's reading up top</strong>, and every previous day kept in the archive below so you can return to any of them.</p>
-
-    <div class="progress-row">
-      <div class="progress-card">
-        <p class="pc-label">Week 1 · 7-day plan</p>
-        <p class="pc-big" id="progressBig">Day 7 of 7</p>
-        <div class="bar" role="progressbar" aria-label="Week 1 progress" aria-valuemin="0" aria-valuemax="7" aria-valuenow="7" id="progressBar"><div id="progressFill"></div></div>
-        <p class="pc-note" id="progressNote">17 previous days in the archive · Week 1 complete — the next series is under way</p>
-      </div>
-      <div class="mini-stat"><span class="n" id="statRead">0</span><span class="t">days marked read on this visit</span></div>
-      <div class="mini-stat"><span class="n" id="statFav">0</span><span class="t">days you've favorited</span></div>
-    </div>
 
   </header>
 
@@ -330,7 +295,6 @@
       <button class="chip" data-filter="all" aria-pressed="true">All days</button>
       <button class="chip" data-filter="previous" aria-pressed="false">Previous</button>
       <button class="chip" data-filter="upcoming" aria-pressed="false">Coming up</button>
-      <button class="chip" data-filter="favorites" aria-pressed="false">♥ Favorites</button>
       <button class="chip" data-filter="unread" aria-pressed="false">Not yet read</button>
     </div>
     <button class="btn" id="randomBtn" type="button">
@@ -357,10 +321,10 @@
     <div class="reader-body" id="readerBody"></div>
   </section>
 
-  <!-- WEEK PLAN -->
+  <!-- PREVIOUS WEEK -->
   <div class="section-head anchor" id="week">
-    <h2>Week 1 at a glance</h2>
-    <p>Shared Tuesday, November 3 · one theme a day</p>
+    <h2>Previous week</h2>
+    <p>Tuesday, November 10 – Monday, November 16 · one theme a day</p>
   </div>
   <ul class="plan-list" id="planList"></ul>
 
@@ -666,8 +630,6 @@
     }
   ];
 
-  var readSet = {};      // day -> true (this visit only)
-  var favSet = {};       // day -> true (this visit only)
   var currentDay = 18;
   var activeFilter = "all";
 
@@ -676,13 +638,6 @@
   function paras(text){
     return text.split("\n\n").map(function(p){ return '<p class="dev-text">' + esc(p) + '</p>'; }).join("");
   }
-  function heartSVG(filled){
-    return '<svg width="17" height="17" viewBox="0 0 24 24" fill="' + (filled ? "currentColor" : "none") + '" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.8 5.1a5 5 0 0 0-7.1 0L12 5.8l-.7-.7a5 5 0 1 0-7.1 7.1l7.8 7.8 7.8-7.8a5 5 0 0 0 0-7.1z"/></svg>';
-  }
-  function checkSVG(){
-    return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>';
-  }
-
   function devotionalBodyHTML(d, includeTitle){
     var h = "";
     if (d.verseKJV && d.verseESV && d.verseNLT){
@@ -714,21 +669,12 @@
   /* ----- Today card ----- */
   function renderToday(){
     var d = DAYS.filter(function(x){ return x.today; })[0];
-    var isRead = !!readSet[d.day];
-    var isFav = !!favSet[d.day];
     byId("todayCard").innerHTML =
       '<div class="today-banner"><div class="tb-left">' +
         '<span class="sun-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span>' +
         '<div><p class="tb-kicker">Today \u00b7 Day ' + d.day + '</p><p class="tb-title">' + esc(d.title) + '</p></div>' +
       '</div><span class="tb-date">' + esc(d.date) + '</span></div>' +
-      '<div class="today-body">' + devotionalBodyHTML(d) +
-        '<div class="today-actions">' +
-          '<button class="btn primary" id="todayReadBtn" type="button" aria-pressed="' + isRead + '">' + (isRead ? checkSVG() + " Read \u2014 well done" : "Mark today as read") + '</button>' +
-          '<button class="btn" id="todayFavBtn" type="button" aria-pressed="' + isFav + '">' + heartSVG(isFav) + (isFav ? "Favorited" : "Favorite this day") + '</button>' +
-        '</div>' +
-      '</div>';
-    byId("todayReadBtn").addEventListener("click", function(){ toggleRead(d.day); });
-    byId("todayFavBtn").addEventListener("click", function(){ toggleFav(d.day); });
+      '<div class="today-body">' + devotionalBodyHTML(d) + '</div>';
   }
 
   /* ----- Archive grid ----- */
@@ -742,8 +688,7 @@
     if (activeFilter === "all") return true;
     if (activeFilter === "previous") return d.status === "delivered";
     if (activeFilter === "upcoming") return d.status === "upcoming";
-    if (activeFilter === "favorites") return !!favSet[d.day];
-    if (activeFilter === "unread") return d.status === "delivered" && !readSet[d.day];
+    if (activeFilter === "unread") return d.status === "delivered";
     return true;
   }
   function matchesSearch(d, q){
@@ -760,37 +705,27 @@
       return;
     }
     grid.innerHTML = list.map(function(d){
-      var isRead = !!readSet[d.day];
-      var isFav = !!favSet[d.day];
-      var badgeCls = d.status === "upcoming" ? "soon" : (isRead ? "done" : "");
+      var badgeCls = d.status === "upcoming" ? "soon" : "";
       var badgeTxt = d.status === "upcoming" ? ("Day " + d.day + " \u00b7 Coming") : ("Day " + d.day + (d.today ? " \u00b7 Today" : ""));
       var statusTxt = d.status === "upcoming"
         ? "Arrives " + d.shortDate + " \u00b7 5:00 a.m."
-        : (isRead ? '<span class="dc-status read">' + checkSVG() + ' Read</span>' : "Tap to read");
+        : "Tap to read";
       return '<div class="day-card' + (d.status === "upcoming" ? " upcoming" : "") + (d.day === currentDay ? " selected" : "") + '" role="button" tabindex="0" data-day="' + d.day + '" aria-label="Open Day ' + d.day + ': ' + esc(d.title) + '">' +
         '<span class="day-badge ' + badgeCls + '">' + badgeTxt + '</span>' +
         '<div class="dc-main"><h3>' + esc(d.title) + '</h3>' +
         '<p class="dc-ref">' + esc(d.ref) + ' \u00b7 ' + esc(d.shortDate) + '</p>' +
         '<p class="dc-excerpt">' + esc(excerptFor(d)) + '</p>' +
         '<span class="dc-status">' + statusTxt + '</span></div>' +
-        '<button class="heart-btn" type="button" data-fav="' + d.day + '" aria-pressed="' + isFav + '" aria-label="Favorite Day ' + d.day + '">' + heartSVG(isFav) + '</button>' +
       '</div>';
     }).join("");
 
     Array.prototype.forEach.call(grid.querySelectorAll(".day-card"), function(card){
       var day = parseInt(card.getAttribute("data-day"), 10);
-      card.addEventListener("click", function(e){
-        if (e.target.closest("[data-fav]")) return;
+      card.addEventListener("click", function(){
         openDay(day, true);
       });
       card.addEventListener("keydown", function(e){
         if (e.key === "Enter" || e.key === " "){ e.preventDefault(); openDay(day, true); }
-      });
-    });
-    Array.prototype.forEach.call(grid.querySelectorAll("[data-fav]"), function(btn){
-      btn.addEventListener("click", function(e){
-        e.stopPropagation();
-        toggleFav(parseInt(btn.getAttribute("data-fav"), 10));
       });
     });
   }
@@ -800,24 +735,10 @@
     var d = DAYS[currentDay - 1];
     var badge = byId("readerBadge");
     badge.textContent = d.status === "upcoming" ? ("Day " + d.day + " \u00b7 Coming " + d.shortDate) : ("Day " + d.day + (d.today ? " \u00b7 Today" : ""));
-    badge.className = "day-badge" + (d.status === "upcoming" ? " soon" : (readSet[d.day] ? " done" : ""));
+    badge.className = "day-badge" + (d.status === "upcoming" ? " soon" : "");
     byId("readerTitle").textContent = d.title;
     byId("readerMeta").textContent = d.date + " \u00b7 " + d.ref;
-    var isRead = !!readSet[d.day];
-    var isFav = !!favSet[d.day];
-    var actions = "";
-    if (d.status === "delivered"){
-      actions = '<div class="today-actions">' +
-        '<button class="btn primary" id="readerReadBtn" type="button" aria-pressed="' + isRead + '">' + (isRead ? checkSVG() + " Read" : "Mark as read") + '</button>' +
-        '<button class="btn" id="readerFavBtn" type="button" aria-pressed="' + isFav + '">' + heartSVG(isFav) + (isFav ? "Favorited" : "Favorite this day") + '</button>' +
-      '</div>';
-    } else {
-      actions = '<div class="today-actions"><button class="btn" id="readerFavBtn" type="button" aria-pressed="' + isFav + '">' + heartSVG(isFav) + (isFav ? "Favorited" : "Favorite this day") + '</button></div>';
-    }
-    byId("readerBody").innerHTML = devotionalBodyHTML(d) + actions;
-    var rb = byId("readerReadBtn");
-    if (rb) rb.addEventListener("click", function(){ toggleRead(d.day); });
-    byId("readerFavBtn").addEventListener("click", function(){ toggleFav(d.day); });
+    byId("readerBody").innerHTML = devotionalBodyHTML(d);
     byId("prevBtn").disabled = currentDay <= 1;
     byId("nextBtn").disabled = currentDay >= DAYS.length;
     byId("prevBtn").style.opacity = currentDay <= 1 ? ".45" : "1";
@@ -835,28 +756,9 @@
     }
   }
 
-  /* ----- State toggles ----- */
-  function updateStats(){
-    var readCount = Object.keys(readSet).length;
-    var favCount = Object.keys(favSet).length;
-    byId("statRead").textContent = readCount;
-    byId("statFav").textContent = favCount;
-    var delivered = 7;
-    byId("progressFill").style.width = (delivered / 7 * 100) + "%";
-    byId("progressBar").setAttribute("aria-valuenow", delivered);
-  }
-  function toggleRead(day){
-    if (readSet[day]) delete readSet[day]; else readSet[day] = true;
-    renderToday(); renderReader(); renderGrid(); updateStats();
-  }
-  function toggleFav(day){
-    if (favSet[day]) delete favSet[day]; else favSet[day] = true;
-    renderToday(); renderReader(); renderGrid(); updateStats();
-  }
-
   /* ----- Week plan ----- */
   function renderPlan(){
-    byId("planList").innerHTML = DAYS.filter(function(d){ return d.day <= 7; }).map(function(d){
+    byId("planList").innerHTML = DAYS.filter(function(d){ return d.day >= 8 && d.day <= 14; }).map(function(d){
       var cls = d.status === "upcoming" ? "" : (d.today ? "today" : "done");
       var mark = d.status === "delivered" && !d.today ? "\u2713" : d.day;
       return '<li class="' + cls + '"><span class="pn">' + mark + '</span><div><div class="pt">' + esc(d.title) + '</div><div class="pr">Day ' + d.day + ' \u00b7 ' + esc(d.ref) + ' \u00b7 ' + esc(d.shortDate) + '</div></div></li>';
@@ -907,7 +809,6 @@
   renderGrid();
   renderReader();
   renderPlan();
-  updateStats();
 })();
 </script>
 </body>
