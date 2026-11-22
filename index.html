@@ -226,6 +226,18 @@
   .next-intro{margin:0 0 14px; color:var(--ink-soft); line-height:1.65; max-width:68ch}
   .plan-list li.next-item .pn{background:var(--gold-soft); color:var(--gold-strong); border-color:var(--line-strong)}
 
+  /* ---------- Other sites ---------- */
+  .site-list{display:flex; flex-direction:column; gap:10px; margin:0; padding:0; list-style:none}
+  .site-list a{
+    background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; display:flex; gap:14px; align-items:center; width:100%;
+    text-decoration:none; color:var(--ink); transition:background .15s ease, border-color .15s ease; min-height:56px;
+  }
+  .site-list a:hover{background:var(--card-2); border-color:var(--line-strong)}
+  .site-list a > div{flex:1 1 auto; min-width:0}
+  .site-list .st{font-weight:700; line-height:1.35; font-family:"Newsreader", Georgia, serif; font-size:1.1rem}
+  .site-list .sd{font-size:.86rem; color:var(--muted); margin-top:2px}
+  .site-list .arrow{flex:none; color:var(--gold-strong); font-weight:800}
+
   footer{margin-top:44px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:space-between}
   footer p{margin:0}
 
@@ -254,6 +266,7 @@
     <a href="#next-series">The next series</a>
     <a href="#archive" class="archive-link">Archive — previous days</a>
     <a href="#week">Previous week</a>
+    <a href="#other">Other sites</a>
     <a href="https://ejyoungr-hash.github.io/moon/" class="moon-link" target="_blank" rel="noopener">Moon site ↗</a>
   </nav>
 </div>
@@ -330,6 +343,50 @@
     <p>Tuesday, November 10 – Monday, November 16 · tap any day to open it in the reader</p>
   </div>
   <ul class="plan-list" id="planList"></ul>
+
+  <!-- OTHER SITES -->
+  <div class="section-head anchor" id="other">
+    <h2>Other sites</h2>
+    <p>More to visit</p>
+  </div>
+  <ul class="site-list">
+    <li>
+      <a href="https://ejyoungr-hash.github.io/daily-devotionals-for-women/" target="_blank" rel="noopener">
+        <div>
+          <div class="st">Daily Devotionals for Women</div>
+          <div class="sd">The companion daily devotional series for women.</div>
+        </div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://ejyoungr-hash.github.io/family-devotional/" target="_blank" rel="noopener">
+        <div>
+          <div class="st">Family Devotional</div>
+          <div class="sd">A devotional for the whole family to share together.</div>
+        </div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://ejyoungr-hash.github.io/teenager-devotional/" target="_blank" rel="noopener">
+        <div>
+          <div class="st">Teenager Devotional</div>
+          <div class="sd">Daily readings for teenagers.</div>
+        </div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://ejyoungr-hash.github.io/moon/" target="_blank" rel="noopener">
+        <div>
+          <div class="st">The Moon</div>
+          <div class="sd">Tonight's moon, the eight phases, and a gallery of favorite views.</div>
+        </div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+  </ul>
 
   <footer>
     <p>Daily Devotionals for Men — daily readings for men at home, at work, and in their faith.</p>
