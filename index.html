@@ -273,7 +273,7 @@
 <div class="wrap">
   <header class="top">
     <div class="dateline">
-      <span>Sunday, November 22, 2026</span><span class="dot" aria-hidden="true"></span>
+      <span>Monday, November 23, 2026</span><span class="dot" aria-hidden="true"></span>
       <span>New devotional every morning at 5:00 a.m. Eastern</span>
     </div>
     <h1>Daily Devotionals for Men</h1>
@@ -293,7 +293,7 @@
     <h2>The next series — Days 15–21</h2>
     <p>Started Tuesday, November 17 · one theme a day</p>
   </div>
-  <p class="next-intro">The next week of themes is under way — Day 20 is today’s reading. Each day’s theme, passage, and date is listed here, and the full devotional for each following day will be added on its day.</p>
+  <p class="next-intro">The next week of themes is under way — Day 21 is today’s reading, and the series is now complete. Each day’s theme, passage, and date is listed here, with the full devotional for every day now in the archive.</p>
   <ul class="plan-list" id="nextList"></ul>
 
   <!-- ARCHIVE -->
@@ -324,9 +324,9 @@
   <section class="reader anchor" id="reader" aria-label="Devotional reader" hidden>
     <div class="reader-head">
       <div>
-        <span class="day-badge" id="readerBadge">Day 20</span>
-        <h2 id="readerTitle">Keeping your word</h2>
-        <p class="rh-meta" id="readerMeta">Sunday, November 22, 2026 · Ecclesiastes 5:4–5</p>
+        <span class="day-badge" id="readerBadge">Day 21</span>
+        <h2 id="readerTitle">Hope that holds in hard times</h2>
+        <p class="rh-meta" id="readerMeta">Monday, November 23, 2026 · Romans 15:13</p>
       </div>
       <div class="reader-nav">
         <button class="btn" id="prevBtn" type="button">← Previous day</button>
@@ -687,7 +687,6 @@
       prayer: "Lord, you have always kept your word to me. Forgive me for the promises I have made lightly and let slide. Give me the honesty to speak fewer promises and the faithfulness to keep the ones I have made \u2014 to you first, and to everyone else. Let my word be something others can trust.",
       action: "Think of one promise you have made \u2014 to God or to someone else \u2014 that you have been putting off. Do one concrete thing today to keep it, or, if it truly cannot be kept, go to the person honestly, own the delay, and make it right.",
       status: "delivered",
-      today: true,
       series: "next"
     },
     {
@@ -696,12 +695,19 @@
       shortDate: "Mon, Nov 23",
       title: "Hope that holds in hard times",
       ref: "Romans 15:13",
-      status: "upcoming",
+      verseKJV: "“Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.”",
+      verseESV: "“May the God of hope fill you with all joy and peace in believing, so that by the power of the Holy Spirit you may abound in hope.”",
+      verseNLT: "“I pray that God, the source of hope, will fill you completely with joy and peace because you trust in him. Then you will overflow with confident hope through the power of the Holy Spirit.”",
+      thought: "Hope is easy when things are going well. It costs nothing to believe the best when the best seems to be happening. But the hope Paul writes about here is not optimism — it is not a cheerful guess that things will work out. It is something far sturdier. Paul calls God “the God of hope,” which means hope does not begin with a man's circumstances or his own strength of will. It begins with who God is. When hard times come — and they come to every man, in one form or another — the question is not whether he can manufacture enough positive thinking to get through. The question is whether the God he trusts is still good, still present, and still at work when nothing around him looks like it.\n\nNotice the order in Paul's prayer. Joy and peace come first, and they come “in believing” — in trusting God right now, in the middle of the hard thing, not after it is over. Hope is what overflows from that trust. A man does not wait for his situation to improve before he has hope; he trusts God in the situation, and hope follows. That is why Paul says this happens “through the power of the Holy Spirit.” Hope that holds in hard times is not a personality trait. Some men are naturally upbeat and some are not, but this kind of hope does not depend on temperament. It depends on the Spirit of God at work in a man who keeps believing.\n\nThat matters because hard times have a way of shrinking a man's vision down to the size of the problem in front of him. The bill, the diagnosis, the conflict, the failure — it fills the whole horizon, and it is hard to see past it. Hope is what lifts his eyes back up. Not by pretending the problem is small, but by remembering that God is bigger than it. The God of hope does not promise that the hard time will pass quickly or easily. He promises that the man who trusts Him will not be left without joy, without peace, and without hope — even while the hard time is still going on.\n\nSo today, if you are in a hard season, do not wait for the season to end before you hope. Bring the hard thing to God plainly, believe that He is still the God of hope in the middle of it, and let Him fill you with the joy and peace that belong to those who trust Him. Hope that holds in hard times is not hope that denies the difficulty. It is hope that refuses to let the difficulty have the last word.",
+      prayer: "God of hope, fill me with your joy and peace as I trust you today. When hard times press in and I cannot see the way forward, remind me that you are still good and still at work. Let my hope overflow — not because my circumstances are easy, but because you are faithful. Strengthen me by your Holy Spirit to keep believing.",
+      action: "Name one hard thing you are facing right now — honestly, without minimizing it — and speak one true thing about God over it: that He is faithful, that He is present, or that He has carried you through hard times before. Write it down somewhere you will see it today.",
+      status: "delivered",
+      today: true,
       series: "next"
     }
   ];
 
-  var currentDay = 20;
+  var currentDay = 21;
   var activeFilter = "all";
 
   function byId(id){ return document.getElementById(id); }
@@ -898,6 +904,11 @@
   renderReader();
   renderPlan();
 })();
+</script>
+<!-- Real view counter (GitHub copy only) -->
+<p id="view-counter" style="text-align:center;font-size:12px;color:#888;margin:24px 0 8px;">Views: <span id="view-count">&hellip;</span></p>
+<script>
+(function(){var el=document.getElementById('view-count');if(!el)return;var c=new AbortController();var t=setTimeout(function(){c.abort()},5000);fetch('https://countapi.mileshilliard.com/api/v1/hit/ejyoungr-hash-daily-devotionals-for-men',{signal:c.signal}).then(function(r){return r.json()}).then(function(d){clearTimeout(t);el.textContent=Number(d.value).toLocaleString()}).catch(function(){var p=document.getElementById('view-counter');if(p)p.style.display='none'})})();
 </script>
 </body>
 </html>
